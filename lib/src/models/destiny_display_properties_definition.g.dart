@@ -13,6 +13,7 @@ DestinyDisplayPropertiesDefinition _$DestinyDisplayPropertiesDefinitionFromJson(
       ..description = json['description'] as String?
       ..name = json['name'] as String?
       ..icon = json['icon'] as String?
+      ..iconHash = (json['iconHash'] as num?)?.toInt()
       ..iconSequences =
           (json['iconSequences'] as List<dynamic>?)
               ?.map(
@@ -30,6 +31,7 @@ Map<String, dynamic> _$DestinyDisplayPropertiesDefinitionToJson(
   'description': instance.description,
   'name': instance.name,
   'icon': instance.icon,
+  'iconHash': instance.iconHash,
   'iconSequences': instance.iconSequences?.map((e) => e.toJson()).toList(),
   'highResIcon': instance.highResIcon,
   'hasIcon': instance.hasIcon,

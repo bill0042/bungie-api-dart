@@ -22,11 +22,21 @@ _$DestinyPostGameCarnageReportExtendedDataFromJson(Map<String, dynamic> json) =>
           k,
           DestinyHistoricalStatsValue.fromJson(e as Map<String, dynamic>),
         ),
-      );
+      )
+      ..scoreboardValues = (json['scoreboardValues'] as Map<String, dynamic>?)
+          ?.map(
+            (k, e) => MapEntry(
+              k,
+              DestinyHistoricalStatsValue.fromJson(e as Map<String, dynamic>),
+            ),
+          );
 
 Map<String, dynamic> _$DestinyPostGameCarnageReportExtendedDataToJson(
   DestinyPostGameCarnageReportExtendedData instance,
 ) => <String, dynamic>{
   'weapons': instance.weapons?.map((e) => e.toJson()).toList(),
   'values': instance.values?.map((k, e) => MapEntry(k, e.toJson())),
+  'scoreboardValues': instance.scoreboardValues?.map(
+    (k, e) => MapEntry(k, e.toJson()),
+  ),
 };

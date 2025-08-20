@@ -35,6 +35,10 @@ class DestinyProfileComponent{
 	@JsonKey(name:'seasonHashes')
 	List<int>? seasonHashes;
 	
+	/// A list of season passes aka reward passes that this profile owns. Unlike versionsOwned, these stay with the profile across Platforms, and thus will be valid.
+	@JsonKey(name:'seasonPassHashes')
+	List<int>? seasonPassHashes;
+	
 	/// A list of hashes for event cards that a profile owns. Unlike most values in versionsOwned, these stay with the profile across all platforms.
 	@JsonKey(name:'eventCardHashesOwned')
 	List<int>? eventCardHashesOwned;

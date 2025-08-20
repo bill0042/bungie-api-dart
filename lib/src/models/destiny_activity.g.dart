@@ -34,23 +34,33 @@ DestinyActivity _$DestinyActivityFromJson(Map<String, dynamic> json) =>
               as Map<String, dynamic>?)
           ?.map((k, e) => MapEntry(k, e as bool))
       ..loadoutRequirementIndex =
-          (json['loadoutRequirementIndex'] as num?)?.toInt();
+          (json['loadoutRequirementIndex'] as num?)?.toInt()
+      ..visibleRewards =
+          (json['visibleRewards'] as List<dynamic>?)
+              ?.map(
+                (e) => DestinyActivityRewardMapping.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList();
 
-Map<String, dynamic> _$DestinyActivityToJson(DestinyActivity instance) =>
-    <String, dynamic>{
-      'activityHash': instance.activityHash,
-      'isNew': instance.isNew,
-      'canLead': instance.canLead,
-      'canJoin': instance.canJoin,
-      'isCompleted': instance.isCompleted,
-      'isVisible': instance.isVisible,
-      'displayLevel': instance.displayLevel,
-      'recommendedLight': instance.recommendedLight,
-      'difficultyTier': encodeDestinyActivityDifficultyTier(
-        instance.difficultyTier,
-      ),
-      'challenges': instance.challenges?.map((e) => e.toJson()).toList(),
-      'modifierHashes': instance.modifierHashes,
-      'booleanActivityOptions': instance.booleanActivityOptions,
-      'loadoutRequirementIndex': instance.loadoutRequirementIndex,
-    };
+Map<String, dynamic> _$DestinyActivityToJson(
+  DestinyActivity instance,
+) => <String, dynamic>{
+  'activityHash': instance.activityHash,
+  'isNew': instance.isNew,
+  'canLead': instance.canLead,
+  'canJoin': instance.canJoin,
+  'isCompleted': instance.isCompleted,
+  'isVisible': instance.isVisible,
+  'displayLevel': instance.displayLevel,
+  'recommendedLight': instance.recommendedLight,
+  'difficultyTier': encodeDestinyActivityDifficultyTier(
+    instance.difficultyTier,
+  ),
+  'challenges': instance.challenges?.map((e) => e.toJson()).toList(),
+  'modifierHashes': instance.modifierHashes,
+  'booleanActivityOptions': instance.booleanActivityOptions,
+  'loadoutRequirementIndex': instance.loadoutRequirementIndex,
+  'visibleRewards': instance.visibleRewards?.map((e) => e.toJson()).toList(),
+};

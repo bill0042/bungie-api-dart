@@ -38,6 +38,8 @@ DestinyInventoryItemDefinition _$DestinyInventoryItemDefinitionFromJson(
                 json['backgroundColor'] as Map<String, dynamic>,
               )
       ..isFeaturedItem = json['isFeaturedItem'] as bool?
+      ..isHolofoil = json['isHolofoil'] as bool?
+      ..isAdept = json['isAdept'] as bool?
       ..screenshot = json['screenshot'] as String?
       ..itemTypeDisplayName = json['itemTypeDisplayName'] as String?
       ..flavorText = json['flavorText'] as String?
@@ -245,6 +247,8 @@ Map<String, dynamic> _$DestinyInventoryItemDefinitionToJson(
   'secondarySpecial': instance.secondarySpecial,
   'backgroundColor': instance.backgroundColor?.toJson(),
   'isFeaturedItem': instance.isFeaturedItem,
+  'isHolofoil': instance.isHolofoil,
+  'isAdept': instance.isAdept,
   'screenshot': instance.screenshot,
   'itemTypeDisplayName': instance.itemTypeDisplayName,
   'flavorText': instance.flavorText,
